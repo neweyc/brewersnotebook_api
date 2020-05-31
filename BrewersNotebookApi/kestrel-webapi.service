@@ -1,0 +1,13 @@
+[Unit]
+ Description=Example .NET Web API App running on Ubuntu 
+[Service] 
+WorkingDirectory=/var/brewApi/Web 
+ExecStart=/usr/bin/dotnet /var/brewApi/Web/bin/Debug/netcoreapp2.0/BrewersNotebookApi.dll
+Restart=always
+RestartSec=10 # Restart service after 10 seconds if dotnet service crashes 
+SyslogIdentifier=dotnet-example 
+User=root
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false 
+[Install] 
+WantedBy=multi-user.target
